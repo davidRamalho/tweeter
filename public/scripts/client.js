@@ -20,7 +20,7 @@ $(document).ready( function () {
 
   //takes in an object *tweet* and returns a tweet <article>  
   const createTweetElement = function (tweet) {
-    const $tweet = $(`<section class="tweets-container">
+    const output = $(`<section id="tweets-container">
       <article class="tweet">
         <header class="tweet-header">
           <span><img src=${tweet.user.avatars}>${tweet.user.name}</span>
@@ -38,11 +38,12 @@ $(document).ready( function () {
       </article>
     </section>`);
 
-    return $tweet;
+    return output;
   }
-
-  console.log(createTweetElement(tweetData))
-
- 
+  
+  const $tweet = createTweetElement(tweetData);
+  console.log($tweet);
+  $('#tweets-container').prepend($tweet); 
+   
 });
 
