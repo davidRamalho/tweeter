@@ -32,3 +32,7 @@ form > div > button {
   font-family: 'Bungee', cursive;
   padding: 5px;
 }
+
+.red {
+  color: red;
+}

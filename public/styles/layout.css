@@ -39,3 +39,21 @@ body {
   width: 90%;
   flex-direction: column;
 }
+
+.tweet-header{
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.tweet-header > span{
+  font-family: 'Source Sans Pro'
+}
+.tweet {
+  width: 100%;
+  background-color: #f4f1ec;
+  border: magenta;
+  border-width: thick;
+  margin: auto;
+ }
