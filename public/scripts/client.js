@@ -58,14 +58,14 @@ $(document).ready( function () {
     let output = $(`<section id="tweets-container">
       <article class="tweet">
         <header class="tweet-header">
-          <span><img src=${tweet.user.avatars}>${escape(tweet.user.name)}</span>
+          <span id="user"><img src=${tweet.user.avatars}>${escape(tweet.user.name)}</span>
           <span id="handle">${escape(tweet.user.handle)}</span>
         </header>
         <section class="tweet-section">
           <div id="text">${escape(tweet.content.text)}</div>
         </section>
         <footer class="tweet-footer">
-          <p>${timeSince(tweet.created_at)} ago</p>
+          <div>${timeSince(tweet.created_at)} ago</div>
           <div class="icons"><i class="fas fa-flag fa-xs"></i>
             <i class="far fa-retweet fa-xs"></i>
             <i class="far fa-heart fa-xs"></i></div>
@@ -78,7 +78,11 @@ $(document).ready( function () {
 
   //Displays Error Message
   const createErrorMessage = function (str) {
-    `<div id="error"></div>`
+    let element = document.createElement('div');
+    element.className = 'alert';
+    element.innerHTML = str;
+    const output =  $('#error').append(element).slideUp(10);
+    return output.slideDown();
   }
   
   //takes in an array of objects and appends each one to the #tweets-container
@@ -109,16 +113,24 @@ $(document).ready( function () {
   $postTweet.on('submit', function (event) {
     event.preventDefault();
     if ($('#tweet-text').val().length > 140) {
-      alert('My little lungs can only tweet so much! 🐦');
+      $('.alert').remove().slideUp(100);
+      createErrorMessage('My little lungs can\'t tweet that much! 🐦');
+      $('#tweet-text').val('');
+      $('.red').removeClass(); 
+      $('#counter').val(140);
     } else if ( $('#tweet-text').val().length === 0) {
-      alert('A tweet cannot be empty 🐦');
+      $('.alert').remove().slideUp(100);
+      createErrorMessage('A tweet cannot be empty 🐦');
+      $('#tweet-text').val(''); 
+      $('#counter').val(140);
     } else {
       const serializedData = $(this).serialize();
       $.post('/tweets', serializedData)
       .then((response) => {
+        $('.alert').slideUp().remove();
         loadTweets();
         $('#tweet-text').val(''); 
-        $('.counter').val(140);
+        $('#counter').val(140);
       })
     }
     

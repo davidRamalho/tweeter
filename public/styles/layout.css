@@ -40,20 +40,179 @@ body {
   flex-direction: column;
 }
 
-.tweet-header{
+#tweets-container {
   display: flex;
   align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  width: 100%;
+}
+
+.tweet {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
+  border: #545149;
+  border-style: solid;
+  border-width: thick;
+}
+
+.tweet-header {
+  display: flex;
   flex-direction: row;
+  width: 100%;
   justify-content: space-between;
 }
 
-.tweet-header > span{
-  font-family: 'Source Sans Pro'
+.tweet-header > span {
+  margin-top: 0.5em;
+  margin-right: 1em;
+  margin-left: 1em;
+  font-family: 'Source Sans Pro', sans-serif; 
 }
-.tweet {
+
+.tweet-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 98%;
+  border-style: solid;
+  border-top-style: none;
+  border-left-style: none;
+  border-right-style: none;
+  border-bottom-width: thick;
+} 
+
+.tweet-section > div {
+  padding-top: 1.5em;
+  padding-bottom: 0.5em;
+  padding-left: 2em;
   width: 100%;
-  background-color: #f4f1ec;
-  border: magenta;
+  font-weight: 500;
+}
+
+.tweet-footer {
+  width: 98%;
+  height: 50px;
+  display: flex;
+  padding-left: 30px;
+  padding-right: 30px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#handle {
+  display: none;
+}
+
+#user {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#user > img {
+  padding-right: 0.5em;
+}
+
+article:hover #user > img {
+  color: #2f4fb9;
+  height: 2em;
+}
+
+article:hover #handle {
+  display: block;
+  color: #4056a1;
+}
+
+article:hover {
+  box-shadow: 10px 10px 10px #4056a1;
+}
+
+article:hover .tweet-footer, 
+article:hover #text,
+article:hover .tweet-section,
+article:hover .tweet-header, 
+article:hover span > img {
+  font-weight: 600;
+}
+
+article:hover .fa-xs {
+  font-size: 1em;
+  color: #2f4fb9;
+}
+
+
+#foot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  width: 100%;
+  margin-top: 2.5em;
+}
+
+.alert {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
+  margin-top: 1em;
+  color: red;
+  font-weight: 600;
+  border: red;
+  border-style: solid;
   border-width: thick;
-  margin: auto;
- }
+  box-shadow: 5px 5px 10px darkred;
+}
+
+@media only screen and (max-width: 768px) {
+  
+  .feature {
+    width: 33.3%;
+    line-height: 600px;
+  }
+
+  .content {
+    width: 66.7%;
+    float: right
+  }
+
+  .footer {
+    clear: right;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .hero {
+    width: 33.3%;
+    float: left;
+  }
+
+  .feature {
+    line-height: 300px;
+  }
+
+  .menu {
+    background-color: #111111;
+    color: #f0f0f0;
+    text-align: left;
+  }
+
+  .tagline {
+    display: inline;
+    font-style: italic;
+    font-weight: normal;
+    font-size: 12px;
+    color: tomato;
+    float: right;
+  }
+
+  .main {
+    max-width: 1024px;
+    font-size: 16px;
+    margin: 0 auto;
+  }
+}

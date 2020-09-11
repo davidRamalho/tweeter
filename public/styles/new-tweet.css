@@ -20,7 +20,7 @@ form > div {
   justify-content: space-between;
 }
 
-.counter {
+#counter {
   font-size: 25px;
   font-family: 'Bungee', cursive;
 }

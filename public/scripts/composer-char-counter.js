@@ -1,7 +1,7 @@
 $(document).ready(function() {
   let length = 140; 
   const textArea = $('#tweet-text');
-  const counter = $('.counter');
+  const counter = $('#counter');
 
   counter.text(length); 
 

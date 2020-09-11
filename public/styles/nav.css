@@ -1,4 +1,4 @@
-nav {
+#navbar {
   display: flex;
   height: 120px; 
   width: 100%;
@@ -7,6 +7,7 @@ nav {
   padding: 1.5em;
   justify-content: space-between;
   align-items: center;
+  position: fixed;
 }
 span {
   font-size: 35px;
@@ -16,4 +17,11 @@ span {
   display: flex;
   align-items: flex-start;
   font-size: 1em;
+}
+
+@media only screen and (max-width: 768px) {
+  #navbar {
+    background-color: #14001a;
+    background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
+  }
 }
