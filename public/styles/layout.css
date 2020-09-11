@@ -15,8 +15,8 @@ html {
  */
 
 body {
-  color: #545149;
-  background-color: #f4f1ec;
+  color: #413e38;
+  background-color: #dfd9cf;
   font-size: 24px;
 }
 
@@ -55,7 +55,7 @@ body {
   align-items: center;
   width: 100%;
   flex-direction: column;
-  border: #545149;
+  border:  #413e38;
   border-style: solid;
   border-width: thick;
 }
