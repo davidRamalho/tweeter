@@ -20,8 +20,8 @@ It makes use of responsive design, allowing for seemless use between desktop and
 - nodemon
 
 ## Screenshots
-!["Screenshot showing cellphone display"] (https://github.com/davidRamalho/tweeter/blob/master/docs/celphone-size.png?raw=true)
+!["Screenshot showing cellphone display"](https://github.com/davidRamalho/tweeter/blob/master/docs/celphone-size.png?raw=true)
 
-!["Screenshot showing tablet display"] (https://github.com/davidRamalho/tweeter/blob/master/docs/tablet-size.png?raw=true)
+!["Screenshot showing tablet display"](https://github.com/davidRamalho/tweeter/blob/master/docs/tablet-size.png?raw=true)
 
-!["Screenshot showing desktop display"] (https://github.com/davidRamalho/tweeter/blob/master/docs/desktop-size.png?raw=true)
+!["Screenshot showing desktop display"](https://github.com/davidRamalho/tweeter/blob/master/docs/desktop-size.png?raw=true)
