@@ -12,10 +12,12 @@
   font-size: 1em;
   margin-top: 120px;
 }
+
 header > div > img {
   width: 10em;
   margin-top: 2.5em;
 }
+
 p {
   margin-top: 0;
   font-size: 1.5em;
