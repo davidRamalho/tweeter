@@ -39,8 +39,12 @@ span {
   margin-left: 0.5em;
   padding: 0;
   width: 4.5em;
-  
 }
+
+#bird:hover {
+  width: 5em;
+} 
+
 
 @media only screen and (max-width: 550px) {
   #navbar > span {
