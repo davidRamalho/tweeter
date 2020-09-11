@@ -1,11 +1,11 @@
 $(document).ready(function() {
-  let length = 140; 
+  let length = 140;
   const textArea = $('#tweet-text');
   const counter = $('#counter');
 
-  counter.text(length); 
+  counter.text(length);
 
-  textArea.on ('keyup', function () {
+  textArea.on('keyup', function() {
     const chars = $(this).val().length;
     counter.html(length - chars);
 
@@ -14,5 +14,5 @@ $(document).ready(function() {
     } else {
       counter.removeClass('red');
     }
-  })
+  });
 });

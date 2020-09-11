@@ -3,7 +3,7 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
-$(document).ready( function () {
+$(document).ready(function() {
   // converts the timestamp into a time since format
   const timeSince = function(date) {
     date = new Date(date);
@@ -51,10 +51,10 @@ $(document).ready( function () {
     let div = document.createElement('div');
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
-  }
+  };
 
-  //takes in an object *tweet* and returns a tweet <article>  
-  const createTweetElement = function (tweet) {
+  //takes in an object *tweet* and returns a tweet <article>
+  const createTweetElement = function(tweet) {
     let output = $(`<section id="tweets-container">
       <article class="tweet">
         <header class="tweet-header">
@@ -74,25 +74,25 @@ $(document).ready( function () {
     </section>`);
 
     return output;
-  }
+  };
 
   //Displays Error Message
-  const createErrorMessage = function (str) {
+  const createErrorMessage = function(str) {
     let element = document.createElement('div');
     element.className = 'alert';
     element.innerHTML = str;
     const output =  $('#error').append(element).slideUp(10);
     return output.slideDown();
-  }
+  };
   
   //takes in an array of objects and appends each one to the #tweets-container
-  const renderTweets = function (tweets) {
+  const renderTweets = function(tweets) {
     for (const tweet of tweets) {
       $('#tweets-container').prepend(createTweetElement(tweet));
     }
-  }
+  };
   
-  //Fetches the tweets stored in /tweets 
+  //Fetches the tweets stored in /tweets
   const loadTweets = () => {
     $.ajax({
       url: '/tweets',
@@ -100,7 +100,7 @@ $(document).ready( function () {
       dataType: 'json',
       success: (tweets) => {
         renderTweets(tweets);
-      }, 
+      },
       error: (error) => {
         console.log(error);
       }
@@ -110,30 +110,29 @@ $(document).ready( function () {
 
   //Submits a POST request with the new-tweet information to the server and upon success calls the loadTweets function.
   const $postTweet = $('#form');
-  $postTweet.on('submit', function (event) {
+  $postTweet.on('submit', function(event) {
     event.preventDefault();
     if ($('#tweet-text').val().length > 140) {
       $('.alert').remove().slideUp(100);
       createErrorMessage('My little lungs can\'t tweet that much! 🐦');
       $('#tweet-text').val('');
-      $('.red').removeClass(); 
+      $('.red').removeClass();
       $('#counter').val(140);
-    } else if ( $('#tweet-text').val().length === 0) {
+    } else if ($('#tweet-text').val().length === 0) {
       $('.alert').remove().slideUp(100);
       createErrorMessage('A tweet cannot be empty 🐦');
-      $('#tweet-text').val(''); 
+      $('#tweet-text').val('');
       $('#counter').val(140);
     } else {
       const serializedData = $(this).serialize();
       $.post('/tweets', serializedData)
-      .then((response) => {
-        $('.alert').slideUp().remove();
-        loadTweets();
-        $('#tweet-text').val(''); 
-        $('#counter').val(140);
-      })
+        .then(() => {
+          $('.alert').slideUp().remove();
+          loadTweets();
+          $('#tweet-text').val(''); 
+          $('#counter').val(140);
+        });
     }
-    
   });
 });
 
